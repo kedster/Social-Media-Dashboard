@@ -2,7 +2,81 @@
 
 ![Preview](images/desktop-preview.jpg)
 
-Welcome to the Social Media Dashboard App! This application allows you to manage and monitor your social media accounts from a single centralized dashboard. Whether you're a social media manager, influencer, or someone who wants to stay on top of their social media presence, this app provides a convenient way to streamline your activities.
+A modern social media dashboard built with React and TypeScript, deployed on Cloudflare's edge infrastructure.
+
+## 🚀 Architecture
+
+- **Frontend**: React TypeScript app deployed on Cloudflare Pages
+- **Backend**: Cloudflare Workers API for data processing
+- **Deployment**: Automated via GitHub Actions
+- **Styling**: SASS/SCSS with responsive design
+
+## 📁 Project Structure
+
+```
+├── frontend/          # React TypeScript application
+├── backend/           # Cloudflare Worker API
+├── .github/workflows/ # GitHub Actions for deployment
+└── docs/             # Documentation
+```
+
+## 🛠️ Technologies
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" width="50" height="50" />
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="TypeScript" width="50" height="50" />
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" alt="Sass" width="50" height="50" />
+</p>
+
+- **Frontend**: React 18, TypeScript, SASS, React Router
+- **Backend**: Cloudflare Workers, TypeScript
+- **Build Tools**: React Scripts 5.0, Wrangler CLI
+- **Deployment**: Cloudflare Pages, Cloudflare Workers, GitHub Actions
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Node.js v20+
+- npm
+- Git
+
+### Local Development
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/kedster/Social-Media-Dashboard.git
+   cd Social-Media-Dashboard
+   ```
+
+2. **Start the backend** (Terminal 1):
+   ```bash
+   cd backend
+   npm install
+   npm run dev
+   ```
+
+3. **Start the frontend** (Terminal 2):
+   ```bash
+   cd frontend
+   npm install
+   npm start
+   ```
+
+4. **Access the application**:
+   - Frontend: http://localhost:3000
+   - Backend API: http://localhost:8787
+
+## 📦 Deployment
+
+### Automatic Deployment
+
+The application automatically deploys to Cloudflare when you push to the main branch:
+
+1. Frontend → Cloudflare Pages
+2. Backend → Cloudflare Workers
+
+See [Cloudflare Deployment Guide](docs/CLOUDFLARE_DEPLOYMENT.md) for detailed setup instructions.
 
 ## Features
 
@@ -18,35 +92,28 @@ Welcome to the Social Media Dashboard App! This application allows you to manage
 
 ## Installation
 
-To install and run the Social Media Dashboard App, follow these steps:
+For detailed installation and deployment instructions, see the [Cloudflare Deployment Guide](docs/CLOUDFLARE_DEPLOYMENT.md).
 
-1. Clone the repository to your local machine:
+### Quick Setup
 
-   ```
-   git clone https://github.com/MithuLix/Social-Media-Dashboard.git
-   ```
-
-2. Navigate to the project directory:
-
-   ```
-   cd social-media-dashboard
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/kedster/Social-Media-Dashboard.git
+   cd Social-Media-Dashboard
    ```
 
-3. Install the dependencies using a package manager like npm or yarn:
-
-   ```
-   npm install
-   ```
-
-4. Configure the necessary API keys and credentials for each social media platform in the app's configuration file. Refer to the documentation for each platform to obtain the required credentials.
-
-5. Build and start the app:
-
-   ```
-   npm start
+2. Install dependencies and start development servers:
+   ```bash
+   # Backend (Terminal 1)
+   cd backend && npm install && npm run dev
+   
+   # Frontend (Terminal 2)
+   cd frontend && npm install && npm start
    ```
 
-6. Open your web browser and visit `http://localhost:3000` to access the Social Media Dashboard App.
+3. Access the application:
+   - Frontend: http://localhost:3000
+   - Backend API: http://localhost:8787
 
 ## Usage
 
