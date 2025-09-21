@@ -1,8 +1,18 @@
 // Importing axios package to make HTTP requests
 import axios from "axios";
 
-// Defining the base URL for the JSON server API
-const urlServer = "https://my-json-server.typicode.com/Cunegundess/serverTeste";
+// API configuration
+const getApiBaseUrl = () => {
+  // In development, use the local Worker (Cloudflare Worker dev server)
+  if (process.env.NODE_ENV === 'development') {
+    return "http://localhost:8787/api";
+  }
+  // In production, this would be the deployed Worker URL
+  // For now, we'll fallback to the external API
+  return "https://my-json-server.typicode.com/Cunegundess/serverTeste";
+};
+
+const urlServer = getApiBaseUrl();
 
 // Defining the dataFake type that represents the structure of the data returned from the "/dataFake" endpoint of the server
 export type dataFake = {
@@ -37,12 +47,16 @@ export async function fetchData<T>(url: string): Promise<T[]> {
 
 // Defining the getDataFake function that returns an array of dataFake objects obtained from the server
 export async function getDataFake(): Promise<dataFake[]> {
-  const dataUrl = `${urlServer}/dataFake`; // Constructing the URL for the "/dataFake" endpoint
-  return await fetchData<dataFake>(dataUrl); // Making an HTTP GET request to the "/dataFake" endpoint and returning the response data as an array of dataFake objects
+  const dataUrl = process.env.NODE_ENV === 'development' 
+    ? `${urlServer}/dataFake` 
+    : `${urlServer}/dataFake`; // Worker API uses /api/dataFake, external API uses /dataFake
+  return await fetchData<dataFake>(dataUrl);
 }
 
 // Defining the getFakeOverviewData function that returns an array of fakeOverviewData objects obtained from the server
 export async function getFakeOverviewData(): Promise<fakeOverviewData[]> {
-  const overviewUrl = `${urlServer}/fakeOverview`; // Constructing the URL for the "/fakeOverview" endpoint
-  return await fetchData<fakeOverviewData>(overviewUrl); // Making an HTTP GET request to the "/fakeOverview" endpoint and returning the response data as an array of fakeOverviewData objects
+  const overviewUrl = process.env.NODE_ENV === 'development' 
+    ? `${urlServer}/fakeOverview` 
+    : `${urlServer}/fakeOverview`; // Worker API uses /api/fakeOverview, external API uses /fakeOverview
+  return await fetchData<fakeOverviewData>(overviewUrl);
 }
